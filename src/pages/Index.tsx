@@ -34,7 +34,7 @@ const newsItems = [
     id: 3,
     title: 'Faculty Publication in IEEE Journal',
     date: '2023-09-28',
-    excerpt: 'Professor Rahman's research on IoT security protocols has been published in the prestigious IEEE journal.',
+    excerpt: "Professor Rahman's research on IoT security protocols has been published in the prestigious IEEE journal.",
     image: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=2369&auto=format&fit=crop'
   }
 ];
