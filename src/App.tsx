@@ -1,4 +1,5 @@
 
+import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -16,30 +17,33 @@ import AdminDashboard from "./pages/AdminDashboard";
 import Unauthorized from "./pages/Unauthorized";
 import NotFound from "./pages/NotFound";
 
+// Create a client
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <AuthProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/student/dashboard" element={<StudentDashboard />} />
-            <Route path="/faculty/dashboard" element={<FacultyDashboard />} />
-            <Route path="/admin/dashboard" element={<AdminDashboard />} />
-            <Route path="/unauthorized" element={<Unauthorized />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </AuthProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <AuthProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/student/dashboard" element={<StudentDashboard />} />
+              <Route path="/faculty/dashboard" element={<FacultyDashboard />} />
+              <Route path="/admin/dashboard" element={<AdminDashboard />} />
+              <Route path="/unauthorized" element={<Unauthorized />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </AuthProvider>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </React.StrictMode>
 );
 
 export default App;
